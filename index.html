@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            background-color: #fafafa;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+
+        .btn-primary {
+            background-color: #000;
+            color: white;
+            padding: 0.625rem 1.25rem;
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: #000;
+        }
+
+        .project-card {
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            overflow: hidden;
+        }
+
+        .project-image img {
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .tool-card {
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="fixed w-full top-0 z-50 shadow-md py-4">
+        <nav class="container mx-auto flex justify-between items-center px-6">
+            <div class="text-2xl font-bold text-white">My<span class="text-gray-300">Portfolio</span></div>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#hero" class="text-white hover:text-gray-300 transition duration-300">Home</a></li>
+                <li><a href="#about" class="text-white hover:text-gray-300 transition duration-300">About</a></li>
+                <li><a href="#education" class="text-white hover:text-gray-300 transition duration-300">Education</a>
+                </li>
+                <li><a href="#experience" class="text-white hover:text-gray-300 transition duration-300">Experience</a>
+                </li>
+                <li><a href="#projects" class="text-white hover:text-gray-300 transition duration-300">Projects</a></li>
+                <li><a href="#contact" class="btn-primary">Contact</a></li>
+            </ul>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-black p-4">
+            <ul class="flex flex-col space-y-4">
+                <li><a href="#hero" class="text-white hover:text-gray-300 block py-2">Home</a></li>
+                <li><a href="#about" class="text-white hover:text-gray-300 block py-2">About</a></li>
+                <li><a href="#education" class="text-white hover:text-gray-300 block py-2">Education</a></li>
+                <li><a href="#experience" class="text-white hover:text-gray-300 block py-2">Experience</a></li>
+                <li><a href="#projects" class="text-white hover:text-gray-300 block py-2">Projects</a></li>
+                <li><a href="#contact" class="btn-primary block text-center">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="hero"
+        class="h-screen flex flex-col justify-center items-center text-center px-6 bg-gradient-to-b from-gray-100 to-white"
+        data-aos="fade-up" data-aos-duration="1000">
+        <div class="relative mb-8">
+            <img src="assets/WhatsApp Image 2025-03-15 at 20.39.02_93c16a26.jpg" alt="Your Photo"
+                class="w-40 h-40 rounded-full shadow-lg object-cover border-4 border-white">
+            <div class="absolute -bottom-2 -right-2 bg-black text-white rounded-full p-2">
+                <i class="fas fa-code text-xl"></i>
+            </div>
+        </div>
+        <h1 class="text-5xl font-bold mb-4">Welcome to My Portfolio</h1>
+        <p class="mt-4 text-xl text-gray-600 max-w-2xl">Showcasing my journey as a informatics engineering student at Airlangga University.</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+            <a href="#about" class="btn-primary flex items-center">
+                <span>Learn More</span>
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <a href="#projects"
+                class="border border-black text-black hover:bg-black hover:text-white transition duration-300 py-2.5 px-5 rounded flex items-center">
+                <span>View Projects</span>
+                <i class="fas fa-eye ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-white" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center section-title mb-16">About Me</h2>
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <!-- Profile Information -->
+                <div class="md:w-1/2" data-aos="fade-right" data-aos-delay="200">
+                    <h3 class="text-2xl font-semibold mb-4">Hello, I'm Shendy Tria Amelyana</h3>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I am a 4th semester informatics engineering student at Airlangga University. 
+                        I have learned a lot about technology and am interested in design, so I focus on that field.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I love exploring new things. 
+                        I have a big dream to become a UI/UX designer in a well-known company in Indonesia, 
+                        I even have the ambition to continue my career abroad.
+                    </p>
+                    
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        My approach combines creative design thinking with technical expertise to produce 
+                        solutions that not only look great but also perform very well. 
+                        I believe in the power of thoughtful design and clean code to turn ideas into reality.
+                    </p>
+                    
+                    <!-- Social Media Links -->
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/shendytriaa" class="text-gray-800 hover:text-black transition duration-300">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://github.com/shendytria" class="text-gray-800 hover:text-black transition duration-300">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/shendytriaa" class="text-gray-800 hover:text-black transition duration-300">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Services Grid -->
+                <div class="md:w-1/2 grid grid-cols-2 gap-4" data-aos="fade-left" data-aos-delay="200">
+                    <!-- Web Development -->
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <div class="text-3xl text-black mb-4">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Web Development</h4>
+                        <p class="text-gray-600">Creating responsive and dynamic websites using modern technologies.</p>
+                    </div>
+                    
+                    <!-- UI/UX Design -->
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <div class="text-3xl text-black mb-4">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">UI/UX Design</h4>
+                        <p class="text-gray-600">Designing intuitive and engaging user interfaces and experiences.</p>
+                    </div>
+                    
+                    <!-- Mobile Development -->
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <div class="text-3xl text-black mb-4">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Mobile Development</h4>
+                        <p class="text-gray-600">Building native and cross-platform mobile applications.</p>
+                    </div>
+                    
+                    <!-- Video Editing -->
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <div class="text-3xl text-black mb-4">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Video Editing</h4>
+                        <p class="text-gray-600">Creating engaging video content for various platforms.</p>
+                    </div>
+                    
+                    <!-- Quality Assurance -->
+                    <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <div class="text-3xl text-black mb-4">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Quality Assurance</h4>
+                        <p class="text-gray-600">Ensuring software quality through comprehensive testing and validation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-24 bg-gray-100" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center section-title mb-16">Education</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="relative pl-8 mb-12 border-l-2 border-black" data-aos="fade-right" data-aos-delay="200">
+                    <div class="absolute -left-3 top-0 w-6 h-6 bg-black rounded-full"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <span class="inline-block px-3 py-1 bg-black text-white text-sm rounded-full mb-2">2011 -
+                            2017</span>
+                        <h3 class="text-xl font-semibold mb-2">SDN Kedurus 3/430, Surabaya</h3>
+                        <p class="text-gray-600">Public Elementary School.</p>
+                    </div>
+                </div>
+                <div class="relative pl-8 mb-12 border-l-2 border-black" data-aos="fade-right" data-aos-delay="300">
+                    <div class="absolute -left-3 top-0 w-6 h-6 bg-black rounded-full"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <span class="inline-block px-3 py-1 bg-black text-white text-sm rounded-full mb-2">2017 - 2020</span>
+                        <h3 class="text-xl font-semibold mb-2">SMPN 16 Surabaya</h3>
+                        <p class="text-gray-600">Public Junior High School.</p>
+                    </div>
+                </div>
+                <div class="relative pl-8 border-l-2 border-black" data-aos="fade-right" data-aos-delay="400">
+                    <div class="absolute -left-3 top-0 w-6 h-6 bg-black rounded-full"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <span class="inline-block px-3 py-1 bg-black text-white text-sm rounded-full mb-2">2024</span>
+                        <h3 class="text-xl font-semibold mb-2">SMAN 22 Surabaya</h3>
+                        <p class="text-gray-600 mb-2">Natural Science</p>
+                        <p class="text-gray-600">Public Senior High School.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-white" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center section-title mb-16">Experience</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-xl font-semibold">Dewan Ambalan SMAN 22 Surabaya</h3>
+                        <span class="text-gray-600 mt-2 md:mt-0">2021 - 2023</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">Ketua Pelaksana Diklat Dewan Ambalan.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                        <li>Plan and organize the training, including materials, schedule, and budget.
+                        </li>
+                        <li>Coordinate the committee and presenters so that the activities run smoothly.</li>
+                        <li>Supervise the implementation of the training and overcome obstacles that arise.</li>
+                        <li>Evaluate and make reports for future improvement.</li>
+                    </ul>
+                    <p class="text-gray-700 mb-4">Sekretaris Dewan Ambalan.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                        <li>Compile and manage administration, such as correspondence and meeting minutes.</li>
+                        <li>Coordinate communication between the chairperson, committee, and external parties.</li>
+                        <li>Filing and documenting all data and activity reports.</li>
+                    </ul>
+                    <p class="text-gray-700 mb-4">Humas Dewan Ambalan.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                        <li>Establish and maintain communication with participants, presenters, and external parties.</li>
+                        <li>Promote training activities through social media, brochures, or other publications.</li>
+                        <li>Manage public relations to improve image and engagement in training.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-xl font-semibold">BEM Universitas Airlangga Kemensospol</h3>
+                        <span class="text-gray-600 mt-2 md:mt-0">2023</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">Sekretaris 'Airlangga Critical Movement 2.0'.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                        <li>Compile and manage administration, such as correspondence and meeting minutes.</li>
+                        <li>Coordinate communication between the chairperson, committee, and external parties.</li>
+                        <li>Filing and documenting all data and activity reports.</li>
+                        <li>Arrange SKP certificates for organizers and participants.</li>
+                    </ul>
+                    <p class="text-gray-700 mb-4">Koor Hubungan Luar 'Candradimuka Award'.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                        <li>Establish cooperation with external parties, such as sponsors, media, and related agencies.</li>
+                        <li>Coordinate staff with their respective job descriptions.</li>
+                        <li>Contact and coordinate with presenters to ensure their attendance and needs.</li>
+                        <li>Maintain communication with partners to build long-term relationships.</li>
+                    </ul>
+                    <p class="text-gray-700 mb-4">Koor Medinfo 'Adu Gagas JATIM'.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                        <li>Manage the publication and promotion of the program through social media, website, and other platforms.</li>
+                        <li>Supervise the team in creating content such as posters, videos, and articles.</li>
+                        <li>Ensure the information delivered is accurate and in line with the communication strategy.</li>
+                        <li>Coordinate with other teams to support effective information dissemination.</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-xl font-semibold">HIMA Teknik Informatika Universitas Airlangga</h3>
+                        <span class="text-gray-600 mt-2 md:mt-0">2023</span>
+                    </div>
+                    <p class="text-gray-700 mb-4">Koor Sponsor dan Dana 'Teknovistafest'.</p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2 mb-4">
+                        <li>Seek and establish cooperation with sponsors to support event funding.</li>
+                        <li>Submit sponsorship proposals and negotiate with potential sponsors.</li>
+                        <li>Manage funds and ensure the use of the budget in accordance with program needs.</li>
+                        <li>Maintain good relationship with sponsors for long term cooperation.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="achievements" class="py-24 bg-gray-100" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center section-title mb-16">Achievements</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-3xl text-black mr-4">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">JUARA HARAPAN 10 KARYA TULIS ILMIAH NASIONAL UNDIP 2022</h3>
+                        <p class="text-gray-600">create a scientific paper on “The Effectiveness of Online or Face-to-Face Learning”</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex items-start" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-3xl text-black mr-4">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2">JUARA HARAPAN 3 KARYA TULIS ILMIAH PROVINSI JAWA TIMUR 2022</h3>
+                        <p class="text-gray-600">make a scientific paper on “Making Organic Fertilizer by Utilizing Eggshells”.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-white" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center section-title mb-4">Projects</h2>
+            <p class="text-center text-gray-600 mb-16 max-w-2xl mx-auto">Here are some of the projects I have
+                worked on, showcasing my design and development skills.</p>
+
+            <div class="flex mb-12 justify-center">
+                <div class="inline-flex bg-gray-200 rounded-lg p-1" role="group">
+                    <button class="project-filter px-4 py-2 rounded-md bg-black text-white"
+                        data-filter="all">All</button>
+                    <button class="project-filter px-4 py-2 rounded-md" data-filter="ui-design">UI Design</button>
+                    <button class="project-filter px-4 py-2 rounded-md" data-filter="graphic-design">Graphic
+                        Design</button>
+                    <button class="project-filter px-4 py-2 rounded-md" data-filter="video">Video</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- UI Design Projects -->
+                <div class="project-card bg-gray-100 rounded-lg overflow-hidden shadow-md" data-category="ui-design"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image h-56 overflow-hidden">
+                        <a href="https://www.figma.com/proto/5K8u1Nsa8igsY3MdhLyRmy/HeavenlyCrumbs?page-id=30%3A7&node-id=198-313&p=f&viewport=341%2C334%2C0.02&t=A8l8nPr8U9mTSLoG-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=198%3A313&show-proto-sidebar=1"
+                            target="_blank">
+                            <img src="assets/1.png" class="w-full h-full object-cover" alt="HeavenlyCrumbs Design">
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-gray-200 text-gray-800 text-xs rounded-full mb-3">UI
+                            Design</span>
+                        <h3 class="text-xl font-semibold mb-2">HeavenlyCrumbs</h3>
+                        <p class="text-gray-600 mb-4">Bakery e-commerce app.
+                        </p>
+                        <a href="https://www.figma.com/proto/5K8u1Nsa8igsY3MdhLyRmy/HeavenlyCrumbs?page-id=30%3A7&node-id=198-313&p=f&viewport=341%2C334%2C0.02&t=A8l8nPr8U9mTSLoG-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=198%3A313&show-proto-sidebar=1"
+                            target="_blank" class="inline-flex items-center text-black font-medium hover:underline">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-gray-100 rounded-lg overflow-hidden shadow-md" data-category="ui-design"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image h-56 overflow-hidden">
+                        <a href="https://www.figma.com/proto/UB4Y2OI8WYN0wseXJdtx4B/wireframe?page-id=0%3A1&node-id=21-52&p=f&viewport=625%2C356%2C0.12&t=0wl01JsNSgQT6xAW-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=21%3A52&show-proto-sidebar=1"
+                            target="_blank">
+                            <img src="assets/2.png" class="w-full h-full object-cover" alt="Wireframe Project">
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-gray-200 text-gray-800 text-xs rounded-full mb-3">UI
+                            Design</span>
+                        <h3 class="text-xl font-semibold mb-2">Quiet Storm</h3>
+                        <p class="text-gray-600 mb-4">Mental health apps</p>
+                        <a href="https://www.figma.com/proto/UB4Y2OI8WYN0wseXJdtx4B/wireframe?page-id=0%3A1&node-id=21-52&p=f&viewport=625%2C356%2C0.12&t=0wl01JsNSgQT6xAW-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=21%3A52&show-proto-sidebar=1"
+                            target="_blank" class="inline-flex items-center text-black font-medium hover:underline">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-gray-100 rounded-lg overflow-hidden shadow-md" data-category="ui-design"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image h-56 overflow-hidden">
+                        <a href="https://www.figma.com/proto/J4Hv2hm9j3ry7peh674OQ4/RKPL?page-id=0%3A1&node-id=22-10&viewport=230%2C361%2C0.2&t=1yVHXm99fEeziayg-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=22%3A10&show-proto-sidebar=1"
+                            target="_blank">
+                            <img src="assets/3.png" class="w-full h-full object-cover" alt="RKPL Project">
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-gray-200 text-gray-800 text-xs rounded-full mb-3">UI
+                            Design</span>
+                        <h3 class="text-xl font-semibold mb-2">Care Connect</h3>
+                        <p class="text-gray-600 mb-4">Family health app.</p>
+                        <a href="https://www.figma.com/proto/J4Hv2hm9j3ry7peh674OQ4/RKPL?page-id=0%3A1&node-id=22-10&viewport=230%2C361%2C0.2&t=1yVHXm99fEeziayg-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=22%3A10&show-proto-sidebar=1"
+                            target="_blank" class="inline-flex items-center text-black font-medium hover:underline">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Social Media Projects -->
+                <div class="project-card bg-gray-100 rounded-lg overflow-hidden shadow-md"
+                    data-category="graphic-design" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image h-56 overflow-hidden">
+                        <a href="https://www.instagram.com/p/C9j03sEviGs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img src="assets/feeds1.png" class="w-full h-full object-cover" alt="Instagram Content">
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-gray-200 text-gray-800 text-xs rounded-full mb-3">Feeds Instagram</span>
+                        <h3 class="text-xl font-semibold mb-2">Promotional Campaign</h3>
+                        <p class="text-gray-600 mb-4">Student demo result poster.</p>
+                        <a href="https://www.instagram.com/p/C9j03sEviGs/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank" class="inline-flex items-center text-black font-medium hover:underline">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-gray-100 rounded-lg overflow-hidden shadow-md"
+                    data-category="graphic-design" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-image h-56 overflow-hidden">
+                        <a href="https://www.instagram.com/p/C-PyFSLPmRQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img src="assets/feeds2.png" class="w-full h-full object-cover" alt="Promotional Design">
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-gray-200 text-gray-800 text-xs rounded-full mb-3">Feeds Instagram</span>
+                        <h3 class="text-xl font-semibold mb-2">Promotional Campaign</h3>
+                        <p class="text-gray-600 mb-4">Student demo result poster.</p>
+                        <a href="https://www.instagram.com/p/C-PyFSLPmRQ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank" class="inline-flex items-center text-black font-medium hover:underline">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Graphic Design Projects -->
+                <div class="project-card bg-gray-100 rounded-lg overflow-hidden shadow-md"
+                    data-category="graphic-design" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image h-56 overflow-hidden">
+                        <img src="assets/Screenshot 2025-03-15 201545.png" class="w-full h-full object-cover" alt="Graphic Design Project">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-gray-200 text-gray-800 text-xs rounded-full mb-3">Graphic
+                            Design</span>
+                        <h3 class="text-xl font-semibold mb-2">Design Poster</h3>
+                        <p class="text-gray-600 mb-4">Promotional poster.</p>
+                        <a href="#" class="inline-flex items-center text-black font-medium hover:underline">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-gray-100 rounded-lg overflow-hidden shadow-md"
+                    data-category="graphic-design" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image h-56 overflow-hidden">
+                        <img src="assets/Screenshot 2025-03-15 201020.png" class="w-full h-full object-cover" alt="Graphic Design Project">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-gray-200 text-gray-800 text-xs rounded-full mb-3">Graphic
+                            Design</span>
+                        <h3 class="text-xl font-semibold mb-2">ID Card Design</h3>
+                        <p class="text-gray-600 mb-4">ID card design.</p>
+                        <a href="#" class="inline-flex items-center text-black font-medium hover:underline">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-gray-100 rounded-lg overflow-hidden shadow-md"
+                    data-category="graphic-design" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image h-56 overflow-hidden">
+                        <img src="assets/image.png" class="w-full h-full object-cover" alt="Graphic Design Project">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-gray-200 text-gray-800 text-xs rounded-full mb-3">Graphic
+                            Design</span>
+                        <h3 class="text-xl font-semibold mb-2">Lanyard Design</h3>
+                        <p class="text-gray-600 mb-4">Lanyard design.</p>
+                        <a href="#" class="inline-flex items-center text-black font-medium hover:underline">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-gray-100 rounded-lg overflow-hidden shadow-md"
+                    data-category="graphic-design" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image h-56 overflow-hidden">
+                        <img src="assets/Screenshot 2025-03-15 201216.png" class="w-full h-full object-cover" alt="Graphic Design Project">
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block px-3 py-1 bg-gray-200 text-gray-800 text-xs rounded-full mb-3">Graphic
+                            Design</span>
+                        <h3 class="text-xl font-semibold mb-2">Design Instagram Story</h3>
+                        <p class="text-gray-600 mb-4">Design instagram story.</p>
+                        <a href="#" class="inline-flex items-center text-black font-medium hover:underline">
+                            View Details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Projects -->
+                <div class="project-card bg-gray-100 rounded-lg overflow-hidden shadow-md" data-category="video"
+                    data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-image h-56 overflow-hidden relative">
+                        <a href="https://drive.google.com/file/d/1O-foHSUTyjNoA9P8FsF4Dt-3TRqsgzXm/view?usp=drive_link"
+                            target="_blank">
+                            <img src="assets/vid1.png" class="w-full h-full object-cover" alt="Video Project">
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                <i class="fas fa-play text-white text-4xl"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <span
+                            class="inline-block px-3 py-1 bg-gray-200 text-gray-800 text-xs rounded-full mb-3">Video</span>
+                        <h3 class="text-xl font-semibold mb-2">EXPO PDB Recap</h3>
+                        <p class="text-gray-600 mb-4">Event recap video for "Power Puff" expo showcasing dynamic editing
+                            skills.</p>
+                        <a href="https://drive.google.com/file/d/1O-foHSUTyjNoA9P8FsF4Dt-3TRqsgzXm/view?usp=drive_link"
+                            target="_blank" class="inline-flex items-center text-black font-medium hover:underline">
+                            Watch Video <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-gray-100 rounded-lg overflow-hidden shadow-md" data-category="video"
+                    data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-image h-56 overflow-hidden relative">
+                        <a href="https://www.instagram.com/reel/C801yAsygJK/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank">
+                            <img src="assets/vid2.png" class="w-full h-full object-cover" alt="Video Project">
+                            <div
+                                class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                <i class="fas fa-play text-white text-4xl"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="p-6">
+                        <span
+                            class="inline-block px-3 py-1 bg-gray-200 text-gray-800 text-xs rounded-full mb-3">Video</span>
+                        <h3 class="text-xl font-semibold mb-2">Promotional Reel</h3>
+                        <p class="text-gray-600 mb-4">Short-form promotional video optimized for social media
+                            engagement.</p>
+                        <a href="https://www.instagram.com/reel/C801yAsygJK/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                            target="_blank" class="inline-flex items-center text-black font-medium hover:underline">
+                            Watch Video <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tools" class="py-24 bg-gray-100" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center section-title mb-16">Tools & Technologies</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-4xl mx-auto">
+                <!-- HTML5 -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <i class="fab fa-html5 text-4xl text-orange-500 mb-4"></i>
+                    <p class="text-sm font-semibold">HTML5</p>
+                </div>
+                
+                <!-- CSS3 -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="150">
+                    <i class="fab fa-css3-alt text-4xl text-blue-500 mb-4"></i>
+                    <p class="text-sm font-semibold">CSS3</p>
+                </div>
+                
+                <!-- JavaScript -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="200">
+                    <i class="fab fa-js text-4xl text-yellow-500 mb-4"></i>
+                    <p class="text-sm font-semibold">JavaScript</p>
+                </div>
+                
+                <!-- Figma -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="300">
+                    <i class="fab fa-figma text-4xl text-purple-500 mb-4"></i>
+                    <p class="text-sm font-semibold">Figma</p>
+                </div>
+                
+                <!-- Git/GitHub -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="350">
+                    <i class="fab fa-github text-4xl text-gray-800 mb-4"></i>
+                    <p class="text-sm font-semibold">Git/GitHub</p>
+                </div>
+                
+                <!-- Node.js -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="400">
+                    <i class="fab fa-node-js text-4xl text-green-600 mb-4"></i>
+                    <p class="text-sm font-semibold">Node.js</p>
+                </div>
+                
+                <!-- Laravel -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="450">
+                    <i class="fab fa-laravel text-4xl text-red-500 mb-4"></i>
+                    <p class="text-sm font-semibold">Laravel</p>
+                </div>
+                
+                <!-- VS Code -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="500">
+                    <i class="fas fa-code text-4xl text-blue-600 mb-4"></i>
+                    <p class="text-sm font-semibold">VS Code</p>
+                </div>
+                
+                <!-- Android Studio -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="550">
+                    <i class="fab fa-android text-4xl text-green-500 mb-4"></i>
+                    <p class="text-sm font-semibold">Android Studio</p>
+                </div>
+                
+                <!-- Flutter -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="600">
+                    <i class="fas fa-mobile-alt text-4xl text-blue-400 mb-4"></i>
+                    <p class="text-sm font-semibold">Flutter</p>
+                </div>
+                
+                <!-- Dart -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="650">
+                    <i class="fas fa-bullseye text-4xl text-blue-500 mb-4"></i>
+                    <p class="text-sm font-semibold">Dart</p>
+                </div>
+                
+                <!-- Tailwind -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="700">
+                    <i class="fas fa-wind text-4xl text-teal-500 mb-4"></i>
+                    <p class="text-sm font-semibold">Tailwind CSS</p>
+                </div>
+                
+                <!-- Canva -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="750">
+                    <i class="fas fa-palette text-4xl text-purple-400 mb-4"></i>
+                    <p class="text-sm font-semibold">Canva</p>
+                </div>
+                
+                <!-- CapCut -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="800">
+                    <i class="fas fa-cut text-4xl text-black mb-4"></i>
+                    <p class="text-sm font-semibold">CapCut</p>
+                </div>
+                
+                <!-- Python -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="850">
+                    <i class="fab fa-python text-4xl text-yellow-600 mb-4"></i>
+                    <p class="text-sm font-semibold">Python</p>
+                </div>
+                
+                <!-- React -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="900">
+                    <i class="fab fa-react text-4xl text-blue-400 mb-4"></i>
+                    <p class="text-sm font-semibold">React</p>
+                </div>
+                
+                <!-- MySQL -->
+                <div class="tool-card bg-white shadow-md p-6 rounded-lg flex flex-col items-center" data-aos="zoom-in"
+                    data-aos-delay="950">
+                    <i class="fas fa-database text-4xl text-blue-800 mb-4"></i>
+                    <p class="text-sm font-semibold">MySQL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-white" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center section-title mb-16">Contact Me</h2>
+            <div class="flex flex-col md:flex-row gap-10 max-w-4xl mx-auto">
+                <div class="md:w-1/2" data-aos="fade-right" data-aos-delay="200">
+                    <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
+                    <p class="text-gray-600 mb-8">Have a project in mind or just want to say hello? I'd love to hear
+                        from you. Fill out the form and I'll get back to you as soon as possible.</p>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gray-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-envelope text-black"></i>
+                        </div>
+                        <a href="mailto:shendytriaaa@gmail.com"
+                            class="text-gray-600 hover:text-black transition duration-300">shendytriaaa@gmail.com</a>
+                    </div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gray-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-map-marker-alt text-black"></i>
+                        </div>
+                        <span class="text-gray-600">Surabaya, Indonesia</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="bg-gray-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-phone text-black"></i>
+                        </div>
+                        <a href="tel:+6282213280162" class="text-gray-600 hover:text-black transition duration-300">+62
+                            822 1328 0162</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left" data-aos-delay="200">
+                    <form action="https://formspree.io/f/xpwpnwrw" method="POST" accept-charset="UTF-8" class="bg-gray-100 p-6 rounded-lg shadow-md">
+                        <input type="hidden" name="_replyto">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text" name="name" id="name" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                                required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" name="email" id="email" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                                required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                            <input type="text" name="subject" id="subject" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                                required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+                                required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-3 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition duration-300 flex items-center justify-center">
+                            Send Message
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-4">My<span class="text-gray-400">Portfolio</span></h2>
+                    <p class="text-gray-400 max-w-md">Creating beautiful digital experiences through thoughtful design
+                        and clean code.</p>
+                </div>
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-6 mb-6">
+                        <a href="https://www.linkedin.com/in/shendytriaa" class="social-icon text-gray-300 hover:text-white text-xl">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/shendytria" class="social-icon text-gray-300 hover:text-white text-xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.instagram.com/shendytriaa" class="social-icon text-gray-300 hover:text-white text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">&copy; 2025 My Portfolio. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#hero" id="back-to-top"
+        class="fixed bottom-6 right-6 w-12 h-12 bg-black text-white rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        // Project filtering
+        const projectFilters = document.querySelectorAll('.project-filter');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        projectFilters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                // Update active filter
+                projectFilters.forEach(btn => btn.classList.remove('bg-black', 'text-white'));
+                filter.classList.add('bg-black', 'text-white');
+
+                const filterValue = filter.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
